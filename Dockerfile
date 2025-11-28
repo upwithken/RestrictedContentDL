@@ -5,7 +5,8 @@ RUN apt-get update && apt-get upgrade -y && \
     git build-essential linux-headers-amd64 tzdata ffmpeg && \
     rm -rf /var/lib/apt/lists/*
 
-# Set timezone (use Asia/Kolkata if needed)
+# Set timezone (configurable via TZ environment variable, defaults to Asia/Dhaka)
+# Railway deployments can override this via environment variables if needed
 ENV TZ=Asia/Dhaka
 
 RUN pip install --no-cache-dir -U pip wheel==0.45.1

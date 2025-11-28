@@ -1,9 +1,38 @@
-*__pycache__*
+# Python cache files (NOT source code - main.py, config.py, etc. SHOULD be committed)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Session files
 *.session*
-*.vscode*
-# *.env
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
 *.log
-*.json
-*.html
-./*.py
+logs.txt
+
+# Environment files - NEVER commit secrets
+config.env
+.env
+*.env.local
+
+# Personal files - don't commit to GitHub
+mypersonalreadme.md
+
+# Test files (optional)
 test.py
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# HTML files (if any generated ones exist)
+*.html
+
+# Note: railway.json SHOULD be committed (it has no secrets)
+# Note: .py source files (main.py, config.py, etc.) SHOULD be committed!

@@ -66,6 +66,59 @@ To stop the bot:
 docker compose down
 ```
 
+## Deploy on Railway
+
+Railway is a cloud platform that makes it easy to deploy applications. Follow these steps to deploy your bot on Railway:
+
+### Prerequisites
+
+1. A [Railway](https://railway.app) account (free tier available)
+2. A GitHub account (to connect your repository)
+3. Your Telegram bot credentials (same as above)
+
+### Deployment Steps
+
+1. **Push your code to GitHub** (if not already done):
+   ```sh
+   git add .
+   git commit -m "Prepare for Railway deployment"
+   git push origin main
+   ```
+
+2. **Create a new Railway project**:
+   - Go to [Railway Dashboard](https://railway.app/dashboard)
+   - Click "New Project"
+   - Select "Deploy from GitHub repo"
+   - Choose your repository
+
+3. **Configure Environment Variables**:
+   - In your Railway project dashboard, go to the "Variables" tab
+   - Add the following environment variables:
+     - `API_ID` - Your Telegram API ID
+     - `API_HASH` - Your Telegram API Hash
+     - `BOT_TOKEN` - Your bot token from @BotFather
+     - `SESSION_STRING` - Your session string from @SmartUtilBot
+     - `MAX_CONCURRENT_DOWNLOADS` (optional, default: 3)
+     - `BATCH_SIZE` (optional, default: 10)
+     - `FLOOD_WAIT_DELAY` (optional, default: 3)
+
+4. **Deploy**:
+   - Railway will automatically detect your `Dockerfile` and start building
+   - The deployment will begin automatically
+   - Check the "Deployments" tab for build logs
+
+5. **Monitor your bot**:
+   - View logs in the Railway dashboard
+   - Your bot will automatically restart if it crashes
+   - Check `/start` command in Telegram to verify it's running
+
+### Important Notes for Railway
+
+- **No persistent storage**: Railway uses ephemeral storage. Session files won't persist, but using `SESSION_STRING` (which this bot does) works perfectly.
+- **Auto-restart**: The bot will automatically restart on failures.
+- **Environment variables**: Always set sensitive data as environment variables in Railway, never commit them to your repository.
+- **Logs**: Access real-time logs directly from the Railway dashboard.
+
 ## Usage
 
 - **`/start`** – Welcomes you and gives a brief introduction.  
