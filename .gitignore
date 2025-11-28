@@ -27,6 +27,8 @@ mypersonalreadme.md
 # Test files (optional)
 test.py
 
+instructions/
+
 # OS files
 .DS_Store
 Thumbs.db
